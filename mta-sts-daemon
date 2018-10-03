@@ -161,7 +161,7 @@ class STSSocketmapResponder(object):
         ts = time.time()
         if status is STSFetchResult.NOT_CHANGED:
             cached = CacheEntry(ts, cached.pol_id, cached.pol_body)
-            self._cache.set(domain, cached)
+            await self._cache.set(domain, cached)
         elif status is STSFetchResult.VALID:
             pol_id, pol_body = policy
             cached = CacheEntry(ts, pol_id, pol_body)
